@@ -10,4 +10,4 @@ Facilitar a consulta de notícias sobre um tema, reunindo as principais informa�
 
 O ARI News foi criado no Google Opal. O fluxo recebe setor, data e região e conecta etapas de busca de notícias, geração de imagem, organização dos dados e apresentação em uma página web.
 
-![Fluxo do ARI News no Google Opal](fluxo-ari-news.png)
+![Fluxo do ARI News no Google Opal](ARI-News.png)
