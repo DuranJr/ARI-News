@@ -17,3 +17,9 @@ O ARI News foi criado no Google Opal. O fluxo recebe setor, data e região e con
 Página gerada para uma pesquisa sobre tecnologia no Brasil, com data inicial de 01/09/2026.
 
 ![Exemplo de resultado do ARI News](resultado-ari-news.png)
+
+## Configuração do projeto
+
+O arquivo [ari-news.opal.json](ari-news.opal.json) contém as etapas, conexões e instruções utilizadas no ARI News.
+
+A execução do projeto depende do Google Opal. A reimportação deste JSON ainda não foi testada.
