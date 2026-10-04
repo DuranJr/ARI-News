@@ -1,0 +1,391 @@
+{
+  "title": "ARI NEWS",
+  "description": "",
+  "version": "0.0.1",
+  "nodes": [
+    {
+      "id": "c30b317d-bab0-4f4e-9bcb-1eccccbe6a79",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Setor",
+        "visual": {
+          "x": -280,
+          "y": 60
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Escolha um setor (Tecnologia, Marketing, Saúde, Etc...)\n"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "4366faa5-3343-49f2-9753-709bbc5f6962",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Região",
+        "visual": {
+          "x": -280,
+          "y": 360
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Escolha o local (País, estado, cidade)\n\n"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "b5731182-7392-49ad-958e-f18e0d0da3ec",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Data",
+        "visual": {
+          "x": -280,
+          "y": 220
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Selecione a data (dd/mm/aaaa)\n\n"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "529a308b-4916-405d-8d6a-13a3e9a67a06",
+      "type": "embed://a2/generate.bgl.json#module:main",
+      "metadata": {
+        "title": "Buscador de Notícias",
+        "visual": {
+          "x": 240,
+          "y": 60
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "config$prompt": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Você é o agente de pesquisa jornalística do ARI NEWS.\n\nFERRAMENTA: [{{\"type\":\"tool\",\"path\":\"embed://a2/tools.bgl.json#module:search-web\",\"title\":\"Search Web\"}}]\n\nSETOR: [{{\"type\":\"in\",\"path\":\"c30b317d-bab0-4f4e-9bcb-1eccccbe6a79\",\"title\":\"Setor\"}}]\nREGIÃO: [{{\"type\":\"in\",\"path\":\"4366faa5-3343-49f2-9753-709bbc5f6962\",\"title\":\"Região\"}}]\nDATA:[{{\"type\":\"in\",\"path\":\"b5731182-7392-49ad-958e-f18e0d0da3ec\",\"title\":\"Data\"}}]\n\n\nOBJETIVO:\nPesquise na web até 10 notícias reais e verificáveis relacionadas ao setor e à região informados pelo usuário.\n\nUtilize a data fornecida como início do período de pesquisa, sem incluir notícias futuras.\n\nREGRAS:\n1. Priorize notícias diretamente relacionadas ao setor e à região.\n2. Pesquise acontecimentos relevantes para tecnologia, empresas, economia, inovação ou outros temas pertinentes ao setor solicitado.\n3. Consulte fontes oficiais, veículos jornalísticos e publicações especializadas.\n4. Selecione até 10 notícias diferentes, evitando matérias duplicadas sobre o mesmo acontecimento.\n5. Verifique a data de publicação de cada matéria.\n6. Extraia o endereço original da notícia sempre que possível.\n7. Nunca invente notícias, declarações, datas, fontes ou links.\n8. Se encontrar menos de 10 notícias verificáveis, apresente somente as encontradas.\n\nPARA CADA NOTÍCIA, INFORME:\n- Título.\n- Resumo de 50 a 80 palavras.\n- Fonte.\n- Data de publicação.\n- Categoria.\n- URL original.\n\nOs resumos devem explicar o acontecimento e sua relevância, utilizando linguagem jornalística objetiva.\n\nOrganize as notícias por relevância para os filtros solicitados.\n\nTodo o conteúdo deve estar em português do Brasil (pt-BR).\n\nRetorne todas as notícias encontradas, até o máximo de 10, de maneira estruturada para a próxima etapa."
+            }
+          ]
+        },
+        "generation-mode": "agent"
+      }
+    },
+    {
+      "id": "0f2df3bf-7551-4e39-a646-126061377538",
+      "type": "embed://a2/generate.bgl.json#module:main",
+      "metadata": {
+        "title": "Gerador de Imagem",
+        "visual": {
+          "x": 240,
+          "y": 320
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "config$prompt": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Gere exatamente uma imagem profissional de alta qualidade para o cabeçalho do ARI NEWS, um portal premium de inteligência de notícias, tecnologia e negócios.\n\nSETOR:\n[{{\"type\":\"in\",\"path\":\"c30b317d-bab0-4f4e-9bcb-1eccccbe6a79\",\"title\":\"Setor\"}}]\n\nREGIÃO:\n[{{\"type\":\"in\",\"path\":\"4366faa5-3343-49f2-9753-709bbc5f6962\",\"title\":\"Região\"}}]\n\nOBJETIVO:\nCrie uma representação artística e abstrata do setor informado, considerando o contexto da região selecionada.\n\nIDENTIDADE VISUAL:\nUtilize uma estética minimalista, contemporânea e sofisticada, inspirada na identidade visual do AeroMetrics AI.\n\nPALETA DE CORES:\nBranco puro: #FFFFFF\nAzul tecnológico: #438FFF\nAzul-marinho profundo: #0B1728\nAzul muito claro: #EDF5FF\n\nDIREÇÃO ARTÍSTICA:\nCrie uma composição abstrata e sofisticada utilizando estruturas arquitetônicas tridimensionais, formas geométricas fluidas e superfícies metálicas elegantes.\n\nUtilize o branco como cor predominante.\n\nO azul tecnológico deve aparecer em detalhes estratégicos, criando pontos de destaque.\n\nO azul-marinho deve proporcionar profundidade e contraste.\n\nUtilize iluminação profissional, sombras suaves e reflexos discretos.\n\nA imagem deve transmitir inovação, inteligência, conhecimento e desenvolvimento.\n\nCOMPOSIÇÃO:\nCrie uma imagem horizontal ampla, com proporção 16:9, otimizada para um cabeçalho de website.\n\nUtilize uma composição equilibrada e bastante espaço negativo.\n\nEvite elementos excessivamente grandes ou que dificultem a apresentação da imagem em telas menores.\n\nELEMENTOS PROIBIDOS:\nRobôs humanoides.\nCérebros artificiais.\nCircuitos eletrônicos genéricos.\nCódigos de programação.\nÍcones de inteligência artificial.\nCores neon.\nGradientes exagerados.\nElementos futuristas excessivamente complexos.\n\nREQUISITOS ABSOLUTOS:\nGere exatamente uma imagem.\n\nNão inclua textos, palavras, números, legendas, logotipos ou marcas-d'água.\n\nRetorne exclusivamente a imagem gerada."
+            }
+          ]
+        },
+        "generation-mode": "image",
+        "p-aspect-ratio": "16:9"
+      }
+    },
+    {
+      "id": "3f01a025-9e2a-421d-9189-0f84ffbde2f7",
+      "type": "embed://a2/generate.bgl.json#module:main",
+      "metadata": {
+        "title": "Formatador de dados",
+        "visual": {
+          "x": 600,
+          "y": 60
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "config$prompt": {
+          "parts": [
+            {
+              "text": "Você é o Formatador de Dados do ARI NEWS.\n\nDADOS RECEBIDOS:\n[{{\"type\":\"in\",\"path\":\"529a308b-4916-405d-8d6a-13a3e9a67a06\",\"title\":\"Buscador de Notícias\"}}]\n\nOBJETIVO:\nReceba as notícias fornecidas pelo Buscador de Notícias e organize todas as informações em uma estrutura JSON padronizada para o gerador da página web.\n\nProcesse até 10 notícias, preservando integralmente os dados recebidos.\n\nREGRAS DE FORMATAÇÃO:\n\n1. Preserve os títulos, resumos, fontes, datas, categorias e URLs originais.\n\n2. Mantenha a ordem de relevância recebida.\n\n3. Numere as notícias sequencialmente, começando em 01.\n\n4. Padronize as datas no formato DD/MM/AAAA, quando possível.\n\n5. Preserve o endereço original de cada notícia.\n\n6. Caso uma notícia não possua URL original, gere um link de pesquisa do Google com o título devidamente codificado para URL.\n\n7. Identifique se o endereço corresponde à matéria original ou a uma pesquisa do Google.\n\n8. Não invente notícias, informações, fontes ou endereços.\n\n9. Não limite os resultados a três notícias. Processe todos os resultados válidos recebidos, até o máximo de 10.\n\nFORMATO DE SAÍDA:\n\nRetorne exclusivamente um objeto JSON válido com os campos total e noticias.\n\nO campo total deve corresponder à quantidade real de notícias.\n\nO campo noticias deve conter uma lista de objetos, cada um com os seguintes campos:\n\nid: número sequencial.\ntitulo: título completo.\nresumo: resumo jornalístico.\nfonte: veículo ou instituição.\ndata: data da publicação.\ncategoria: categoria editorial.\nurl: endereço original ou de pesquisa.\ntipo_link: original ou pesquisa.\n\nSe não receber nenhuma notícia, retorne total igual a zero e uma lista vazia.\n\nIDIOMA:\nTodo o conteúdo textual deve estar em português do Brasil (pt-BR).\n\nSAÍDA:\nRetorne somente o JSON válido, sem apresentações, explicações ou blocos Markdown.\n  "
+            }
+          ],
+          "role": "user"
+        },
+        "generation-mode": "agent"
+      }
+    },
+    {
+      "id": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "type": "embed://a2/a2.bgl.json#module:render-outputs",
+      "metadata": {
+        "title": "WebPage",
+        "visual": {
+          "x": 960,
+          "y": 60
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "p-render-mode": "Auto",
+        "text": {
+          "parts": [
+            {
+              "text": "Crie uma página web profissional para o ARI NEWS, um portal premium de notícias, tecnologia, inovação e inteligência de negócios.\n\nDADOS DE ENTRADA:\n\nNOTÍCIAS:\n[{{\"type\":\"in\",\"path\":\"3f01a025-9e2a-421d-9189-0f84ffbde2f7\",\"title\":\"Formatador de dados\"}}]\n\nIMAGEM PRINCIPAL:\n[{{\"type\":\"in\",\"path\":\"0f2df3bf-7551-4e39-a646-126061377538\",\"title\":\"Gerador de Imagem\"}}]\n\nSETOR:\n[{{\"type\":\"in\",\"path\":\"c30b317d-bab0-4f4e-9bcb-1eccccbe6a79\",\"title\":\"Setor\"}}]\n\nREGIÃO:\n[{{\"type\":\"in\",\"path\":\"4366faa5-3343-49f2-9753-709bbc5f6962\",\"title\":\"Região\"}}]\n\nDATA:\n[{{\"type\":\"in\",\"path\":\"b5731182-7392-49ad-958e-f18e0d0da3ec\",\"title\":\"Data\"}}]\n\nESTRUTURA DA PÁGINA:\n\n1. CABEÇALHO\n\nApresente ARI NEWS em destaque, acompanhado do subtítulo INTELIGÊNCIA DE NEGÓCIOS.\n\nExiba a data da pesquisa no lado direito.\n\n2. IMAGEM PRINCIPAL\n\nUtilize a imagem recebida do Criador de Imagens como um banner horizontal elegante.\n\nPreserve sua proporção e qualidade.\n\n3. BARRA DE CONTEXTO\n\nApresente o setor, a região, a data e a quantidade real de notícias encontradas.\n\nUtilize etiquetas pequenas, elegantes e minimalistas.\n\n4. NOTÍCIA EM DESTAQUE\n\nApresente a primeira notícia com maior destaque visual.\n\nExiba seu título, categoria, resumo completo, fonte, data e link de acesso.\n\n5. FEED DE NOTÍCIAS\n\nOrganize as demais notícias em uma grade editorial responsiva de duas colunas.\n\nExiba todas as notícias recebidas, até o máximo de 10.\n\nCada notícia deve apresentar:\n- Número sequencial.\n- Categoria.\n- Título.\n- Resumo.\n- Fonte.\n- Data.\n- Link de acesso.\n\n6. LINKS\n\nUtilize LER MATÉRIA ↗ para links originais e PESQUISAR NOTÍCIA ↗ para links de pesquisa do Google.\n\nTodos os links devem apontar para os respectivos endereços recebidos do Formatador de Dados.\n\nAbra links externos em uma nova aba.\n\n7. RESPONSIVIDADE\n\nEm computadores, utilize um layout editorial espaçoso.\n\nEm smartphones, reorganize as notícias em uma única coluna.\n\n8. CONTEÚDO\n\nNão invente notícias, datas, imagens ou endereços.\n\nSe existirem menos de 10 notícias, apresente somente as recebidas.\n\nCaso nenhuma notícia seja encontrada, apresente uma mensagem informativa em português.\n\nSiga rigorosamente a identidade visual, as regras de idioma e as instruções técnicas estabelecidas no System Instruction."
+            }
+          ],
+          "role": "user"
+        },
+        "b-system-instruction": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Você é um desenvolvedor web e designer editorial sênior especializado em interfaces premium, portais de tecnologia e inteligência de negócios.\n\nSua função é criar um documento HTML5 autônomo, responsivo e funcional para o ARI NEWS, compatível com a renderização dentro do Google Opal.\n\nREQUISITO FUNDAMENTAL DE IDIOMA:\n\nToda a interface deve estar integralmente em português do Brasil (pt-BR).\n\nIsso inclui títulos, resumos, categorias, etiquetas, botões, metadados e mensagens.\n\nTraduza os conteúdos recebidos quando necessário, preservando seu significado original.\n\nIDENTIDADE VISUAL — ARI NEWS:\n\nUtilize uma estética editorial premium, minimalista, moderna e sofisticada, inspirada na identidade visual do AeroMetrics AI.\n\nPALETA DE CORES OBRIGATÓRIA:\n\nBranco principal: #FFFFFF\nAzul tecnológico: #438FFF\nAzul-marinho profundo: #0B1728\nAzul muito claro: #EDF5FF\nCinza secundário: #64748B\nBordas discretas: #E2E8F0\n\nO branco deve ocupar a maior parte da interface.\n\nUtilize o azul-marinho nos títulos e cabeçalhos.\n\nReserve o azul tecnológico para links, pequenos detalhes, categorias e elementos interativos.\n\nUtilize o azul muito claro em etiquetas e blocos secundários.\n\nTIPOGRAFIA:\n\nUtilize fontes sans-serif modernas disponíveis no sistema, semelhantes à Inter ou Helvetica Neue.\n\nCrie uma hierarquia clara entre títulos, subtítulos, resumos e metadados.\n\nUtilize títulos expressivos e resumos com altura de linha entre 1.6 e 1.8.\n\nMantenha os textos alinhados à esquerda.\n\nESTILO EDITORIAL:\n\nPriorize bastante espaço em branco, excelente legibilidade e margens equilibradas.\n\nEvite a aparência de dashboards corporativos genéricos.\n\nNão utilize cores neon, gradientes exagerados, glassmorphism ou sombras pesadas.\n\nPrefira componentes retangulares, com bordas finas e cantos retos ou minimamente arredondados.\n\nLAYOUT:\n\nUtilize uma estrutura centralizada, com largura máxima de aproximadamente 1200 pixels.\n\nO cabeçalho deve apresentar ARI NEWS, com ARI em azul-marinho e NEWS em azul tecnológico.\n\nA primeira notícia deve possuir maior destaque visual.\n\nOrganize as demais notícias em uma grade editorial responsiva de duas colunas.\n\nUtilize espaçamentos equilibrados e linhas divisórias extremamente discretas.\n\nIMAGEM:\n\nRenderize a imagem recebida do Criador de Imagens utilizando o recurso disponibilizado pelo Google Opal.\n\nPreserve a proporção da imagem.\n\nNão invente URLs e não utilize imagens externas adicionais.\n\nNOTÍCIAS:\n\nApresente todas as notícias válidas recebidas, até o máximo de 10.\n\nNão invente notícias, fontes, datas ou endereços.\n\nPreserve os títulos, resumos e demais dados recebidos.\n\nSe existirem menos de 10 notícias, adapte automaticamente o layout.\n\nLINKS:\n\nUtilize azul tecnológico nos links, com efeitos de hover discretos.\n\nOs links de matérias originais devem apresentar o texto LER MATÉRIA ↗.\n\nOs links de pesquisa devem apresentar o texto PESQUISAR NOTÍCIA ↗.\n\nAbra os links em uma nova aba, utilizando os atributos de segurança apropriados.\n\nRESPONSIVIDADE:\n\nA página deve funcionar corretamente em computadores, tablets e smartphones.\n\nEm dispositivos móveis, reorganize automaticamente o conteúdo em uma única coluna.\n\nAdapte os tamanhos dos títulos, os espaçamentos e as dimensões da imagem.\n\nNão permita rolagem horizontal.\n\nRESTRIÇÕES TÉCNICAS:\n\nGere um documento HTML5 completo.\n\nInclua todo o CSS em uma única tag style dentro do head.\n\nUtilize CSS puro e responsivo.\n\nNão importe frameworks externos, bibliotecas, CDNs ou scripts de terceiros.\n\nGaranta compatibilidade com a renderização em iframe dentro da plataforma Google Opal.\n\nNão inclua rodapé, copyright ou avisos de direitos reservados.\n\nSAÍDA:\n\nRetorne exclusivamente o documento HTML5 completo, começando com a declaração DOCTYPE html e terminando com a tag de fechamento html.\n\nNão inclua blocos Markdown, apresentações ou explicações antes ou depois do código."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "c30b317d-bab0-4f4e-9bcb-1eccccbe6a79",
+      "to": "529a308b-4916-405d-8d6a-13a3e9a67a06",
+      "out": "context",
+      "in": "p-z-c30b317d-bab0-4f4e-9bcb-1eccccbe6a79"
+    },
+    {
+      "from": "4366faa5-3343-49f2-9753-709bbc5f6962",
+      "to": "529a308b-4916-405d-8d6a-13a3e9a67a06",
+      "out": "context",
+      "in": "p-z-4366faa5-3343-49f2-9753-709bbc5f6962"
+    },
+    {
+      "from": "b5731182-7392-49ad-958e-f18e0d0da3ec",
+      "to": "529a308b-4916-405d-8d6a-13a3e9a67a06",
+      "out": "context",
+      "in": "p-z-b5731182-7392-49ad-958e-f18e0d0da3ec"
+    },
+    {
+      "from": "c30b317d-bab0-4f4e-9bcb-1eccccbe6a79",
+      "to": "0f2df3bf-7551-4e39-a646-126061377538",
+      "out": "context",
+      "in": "p-z-c30b317d-bab0-4f4e-9bcb-1eccccbe6a79"
+    },
+    {
+      "from": "4366faa5-3343-49f2-9753-709bbc5f6962",
+      "to": "0f2df3bf-7551-4e39-a646-126061377538",
+      "out": "context",
+      "in": "p-z-4366faa5-3343-49f2-9753-709bbc5f6962"
+    },
+    {
+      "from": "529a308b-4916-405d-8d6a-13a3e9a67a06",
+      "to": "3f01a025-9e2a-421d-9189-0f84ffbde2f7",
+      "out": "context",
+      "in": "p-z-529a308b-4916-405d-8d6a-13a3e9a67a06"
+    },
+    {
+      "from": "3f01a025-9e2a-421d-9189-0f84ffbde2f7",
+      "to": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "out": "context",
+      "in": "p-z-3f01a025-9e2a-421d-9189-0f84ffbde2f7"
+    },
+    {
+      "from": "0f2df3bf-7551-4e39-a646-126061377538",
+      "to": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "out": "context",
+      "in": "p-z-0f2df3bf-7551-4e39-a646-126061377538"
+    },
+    {
+      "from": "c30b317d-bab0-4f4e-9bcb-1eccccbe6a79",
+      "to": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "out": "context",
+      "in": "p-z-c30b317d-bab0-4f4e-9bcb-1eccccbe6a79"
+    },
+    {
+      "from": "4366faa5-3343-49f2-9753-709bbc5f6962",
+      "to": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "out": "context",
+      "in": "p-z-4366faa5-3343-49f2-9753-709bbc5f6962"
+    },
+    {
+      "from": "b5731182-7392-49ad-958e-f18e0d0da3ec",
+      "to": "4cc540fb-f2b8-49f6-bb5b-e92fade4aa5d",
+      "out": "context",
+      "in": "p-z-b5731182-7392-49ad-958e-f18e0d0da3ec"
+    }
+  ],
+  "metadata": {
+    "visual": {
+      "presentation": {
+        "themes": {
+          "01ac5edc-10ec-4341-917f-331f1f9df4a8": {
+            "themeColors": {
+              "primaryColor": "#1a1a1a",
+              "secondaryColor": "#7a7a7a",
+              "backgroundColor": "#ffffff",
+              "textColor": "#1a1a1a",
+              "primaryTextColor": "#ffffff"
+            },
+            "template": "basic",
+            "isDefaultTheme": true,
+            "palette": {
+              "primary": {
+                "0": "#000000",
+                "5": "#001417",
+                "10": "#001f24",
+                "15": "#002b30",
+                "20": "#00363d",
+                "25": "#00424a",
+                "30": "#004f58",
+                "35": "#005b66",
+                "40": "#006874",
+                "50": "#008391",
+                "60": "#00a0b0",
+                "70": "#22bccf",
+                "80": "#4fd8eb",
+                "90": "#97f0ff",
+                "95": "#d0f8ff",
+                "98": "#edfcff",
+                "99": "#f6feff",
+                "100": "#ffffff"
+              },
+              "secondary": {
+                "0": "#000000",
+                "5": "#001417",
+                "10": "#051f23",
+                "15": "#10292d",
+                "20": "#1c3438",
+                "25": "#273f43",
+                "30": "#334b4f",
+                "35": "#3e565b",
+                "40": "#4a6267",
+                "50": "#637b80",
+                "60": "#7c959a",
+                "70": "#96b0b4",
+                "80": "#b1cbd0",
+                "90": "#cde7ec",
+                "95": "#dbf6fa",
+                "98": "#edfcff",
+                "99": "#f6feff",
+                "100": "#ffffff"
+              },
+              "tertiary": {
+                "0": "#000000",
+                "5": "#030f2c",
+                "10": "#0e1b37",
+                "15": "#192541",
+                "20": "#24304d",
+                "25": "#2f3b58",
+                "30": "#3b4664",
+                "35": "#465271",
+                "40": "#525e7d",
+                "50": "#6b7697",
+                "60": "#8490b2",
+                "70": "#9faace",
+                "80": "#bac6ea",
+                "90": "#dae2ff",
+                "95": "#eef0ff",
+                "98": "#faf8ff",
+                "99": "#fefbff",
+                "100": "#ffffff"
+              },
+              "neutral": {
+                "0": "#000000",
+                "5": "#0e1212",
+                "10": "#191c1d",
+                "15": "#232627",
+                "20": "#2e3132",
+                "25": "#393c3d",
+                "30": "#444748",
+                "35": "#505354",
+                "40": "#5c5f5f",
+                "50": "#747878",
+                "60": "#8e9192",
+                "70": "#a9acac",
+                "80": "#c4c7c7",
+                "90": "#e1e3e3",
+                "95": "#eff1f1",
+                "98": "#f8fafa",
+                "99": "#fafdfd",
+                "100": "#ffffff"
+              },
+              "neutralVariant": {
+                "0": "#000000",
+                "5": "#091214",
+                "10": "#141d1f",
+                "15": "#1e2729",
+                "20": "#293234",
+                "25": "#343d3f",
+                "30": "#3f484a",
+                "35": "#4b5456",
+                "40": "#576062",
+                "50": "#6f797a",
+                "60": "#899294",
+                "70": "#a3adaf",
+                "80": "#bfc8ca",
+                "90": "#dbe4e6",
+                "95": "#e9f2f4",
+                "98": "#f2fbfd",
+                "99": "#f6feff",
+                "100": "#ffffff"
+              },
+              "error": {
+                "0": "#000000",
+                "5": "#2d0001",
+                "10": "#410002",
+                "15": "#540003",
+                "20": "#690005",
+                "25": "#7e0007",
+                "30": "#93000a",
+                "35": "#a80710",
+                "40": "#ba1a1a",
+                "50": "#de3730",
+                "60": "#ff5449",
+                "70": "#ff897d",
+                "80": "#ffb4ab",
+                "90": "#ffdad6",
+                "95": "#ffedea",
+                "98": "#fff8f7",
+                "99": "#fffbff",
+                "100": "#ffffff"
+              }
+            }
+          }
+        },
+        "theme": "01ac5edc-10ec-4341-917f-331f1f9df4a8"
+      }
+    },
+    "parameters": {}
+  }
+}
